@@ -17,7 +17,7 @@
 *
 * Version: 2025-11-03
 */
-package Student_package;
+package Student_package.src.student_Package;
 
 /**
  * Purpose: The reponsibility of main is ...

@@ -15,17 +15,17 @@
 *
 * <<Add more references here>>
 *
-* Version: 2025-11-03
+* Version: 2025-11-10
 */
-package Student_package;
+package student_Package;
 
 /**
- * Purpose: The reponsibility of courses is ...
+ * Purpose: The reponsibility of HonorsCourse is ...
  *
- * courses is-a ...
- * courses is ...
+ * HonorsCourse is-a ...
+ * HonorsCourse is ...
  */
-public class courses extends student
+public class HonorsCourse extends courses
 {
 
 }

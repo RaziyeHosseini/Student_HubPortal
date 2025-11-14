@@ -17,7 +17,7 @@
 *
 * Version: 2025-11-14
 */
-package Student_package;
+package Student_package.src.student_Package;
 
 /**
  * Purpose: The reponsibility of GPACalculator is ...
