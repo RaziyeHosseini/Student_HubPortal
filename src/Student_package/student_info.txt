@@ -1,2 +1,2 @@
 ID 	| 	First_name	| 	Last_name	|	Courses		| 	Grades		|
-100	| Raz 			/ Hosseyni		; math1, sience2, English3 : 
+100	| Raz 			/ Hosseyni		; math1, science2*, English3 : 
