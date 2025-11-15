@@ -28,49 +28,51 @@ package Student_package.src.student_Package;
  * LoginApp is ...
  */
 import javax.swing.*;
+
+import java.awt.GridLayout;
 import java.awt.event.*;
 
-public class LoginApp
-{
-	public static void main(String[] args)
-	{
+public class LoginApp {
+	public static void main(String[] args) {
 		new LoginApp();
 	}
 
-	public LoginApp()
-	{
+	public LoginApp() {
 		JFrame frame = new JFrame("Login");
 		JTextField nameField = new JTextField(15);
 		JTextField idField = new JTextField(15);
 		JButton enter = new JButton("Enter");
 
-		frame.add(new JLabel("Name:"));
-		frame.add(nameField);
-		frame.add(new JLabel("ID:"));
-		frame.add(idField);
-		frame.add(enter);
+		JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
+		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-		frame.setLayout(new java.awt.FlowLayout());
-		frame.setSize(350, 150);
+		panel.add(new JLabel("Name:"));
+		panel.add(nameField);
+		panel.add(new JLabel("ID:"));
+		panel.add(idField);
+		panel.add(new JLabel("")); // empty cell
+		panel.add(enter);
+
+		frame.add(panel);
+		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null); // center the frame
 		frame.setVisible(true);
 
+		// Action listener for the enter button, UPDATE CODE BELOW for when we need to
+		// add the 2nd window for the student details
 		enter.addActionListener(e -> {
 			String name = nameField.getText();
 			String id = idField.getText();
-			if (checkUser(name, id))
-			{
+			if (checkUser(name, id)) {
 				JOptionPane.showMessageDialog(frame, "Found!");
-			}
-			else
-			{
+			} else {
 				JOptionPane.showMessageDialog(frame, "Not Found!");
 			}
 		});
 	}
 
-	private boolean checkUser(String name, String id)
-	{
+	private boolean checkUser(String name, String id) {
 		return name.equals("Raziye") && id.equals("123"); // has to go to the
 															// text file to find
 															// the students name

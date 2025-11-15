@@ -19,13 +19,18 @@
 */
 package Student_package.src.student_Package;
 
+import java.util.HashMap;
+
 /**
  * Purpose: The reponsibility of courses is ...
  *
- * courses is-a ...
- * courses is ...
+ * courses is-a ... courses is ...
  */
-public class courses extends student
-{
+public class courses extends student {
+
+	public courses(int ID, String name, String Lname, HashMap<courses, String> courseList) {
+		super(ID, name, Lname, courseList);
+		// TODO Auto-generated constructor stub
+	}
 
 }

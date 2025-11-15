@@ -22,10 +22,8 @@ package Student_package.src.student_Package;
 /**
  * Purpose: The reponsibility of GPACalculator is ...
  *
- * GPACalculator is-a ...
- * GPACalculator is ...
+ * GPACalculator is-a ... GPACalculator is ...
  */
-public class GPACalculator
-{
-	//New file exists
+public class GPACalculator {
+	// New file exists
 }
