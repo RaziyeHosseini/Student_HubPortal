@@ -15,17 +15,22 @@
 *
 * <<Add more references here>>
 *
-* Version: 2025-11-10
+* Version: 2025-11-03
 */
-package Student_package;
+package Student_package.src.student_Package;
+
+import java.util.HashMap;
 
 /**
- * Purpose: The reponsibility of HonorsCourse is ...
+ * Purpose: The reponsibility of courses is ...
  *
- * HonorsCourse is-a ...
- * HonorsCourse is ...
+ * courses is-a ... courses is ...
  */
-public class HonorsCourse extends courses
-{
+public class courses extends student {
+
+	public courses(int ID, String name, String Lname, HashMap<courses, String> courseList) {
+		super(ID, name, Lname, courseList);
+		// TODO Auto-generated constructor stub
+	}
 
 }

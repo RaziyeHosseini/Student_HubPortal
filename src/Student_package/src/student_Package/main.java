@@ -17,23 +17,21 @@
 *
 * Version: 2025-11-03
 */
-package Student_package;
+package Student_package.src.student_Package;
 
 /**
  * Purpose: The reponsibility of main is ...
  *
- * main is-a ...
- * main is ...
+ * main is-a ... main is ...
  */
-public class main
-{
+public class main {
 
 	/**
-	 * Purpose: 
+	 * Purpose:
+	 * 
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}

@@ -15,17 +15,15 @@
 *
 * <<Add more references here>>
 *
-* Version: 2025-11-03
+* Version: 2025-11-14
 */
-package Student_package;
+package Student_package.src.student_Package;
 
 /**
- * Purpose: The reponsibility of courses is ...
+ * Purpose: The reponsibility of GPACalculator is ...
  *
- * courses is-a ...
- * courses is ...
+ * GPACalculator is-a ... GPACalculator is ...
  */
-public class courses extends student
-{
-
+public class GPACalculator {
+	// New file exists
 }
