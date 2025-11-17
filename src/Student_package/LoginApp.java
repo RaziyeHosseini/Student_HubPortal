@@ -27,14 +27,22 @@ package Student_package;
  */
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.io.*;
 
 public class LoginApp {
+	
+	private HashMap<String, String> students = new HashMap<>();
+	//String filename = "student_info.txt";
     public static void main(String[] args) {
         new LoginApp();
     }
 
     public LoginApp() {
-        JFrame frame = new JFrame("Login");
+    	
+    	loadStudentsFormFile("student_info.txt");
+    	//System.out.println(students);       
+    	JFrame frame = new JFrame("Login");
         JTextField nameField = new JTextField(15);
         JTextField idField = new JTextField(15);
         JButton enter = new JButton("Enter");
@@ -55,14 +63,66 @@ public class LoginApp {
             String id = idField.getText();
             if (checkUser(name, id)) {
                 JOptionPane.showMessageDialog(frame, "Found!");
+                System.out.println(name + id);
             } else {
                 JOptionPane.showMessageDialog(frame, "Not Found!");
+                System.out.println(name + id);
             }
+            System.out.println(name + id);
+//            System.out.println(students);
+//            File f = new File(filename);
+//            System.out.println("Looking for file at: " + f.getAbsolutePath());
+
+            
         });
     }
+    
+    
+    //load info hash map
+    private void loadStudentsFormFile(String filename) {
+    	try (BufferedReader br = new BufferedReader(new FileReader(filename))){
+    		String line;
+    		
+    		while((line = br.readLine())!= null) {
+    			//System.out.println(line);
+    			String [] parts = line.split(",");
+    			//System.out.println(parts);
+    			if(parts.length >= 2) {
+    				String id = parts[0].trim();
+    				String name = parts[1].trim();
+    				students.put(id, name);
+    				System.out.println(students);
+    			}
+    		}
+    		
+    		
+    	}catch(IOException e) {
+			System.out.println("Error reading file: " + e.getMessage());
+    	}
+    	
+    }
+    
 
     private boolean checkUser(String name, String id) {
-        return name.equals("Raziye") && id.equals("123");	//has to go to the text file to find the students name and id and check
+        return students.containsKey(id) && students.get(id).equals(name);
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

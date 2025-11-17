@@ -30,11 +30,11 @@ public class student
 	private int ID;
 	private String name ;
 	private String Lname;
-	private HashMap<Course, String> courseList = new HashMap<Course, String>();
+	private HashMap<courses, String> courseList = new HashMap<courses, String>();
 	
 	
 	
-	public student(int ID, String name , String Lname, HashMap<Course, String> courseList) {
+	public student(int ID, String name , String Lname, HashMap<courses, String> courseList) {
 		this.setID(ID);
 		this.setName(name) ;
 		this.setLname(Lname) ;
