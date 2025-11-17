@@ -19,6 +19,8 @@
 */
 package Student_package.src.student_Package;
 
+import java.util.HashMap;
+
 /**
  * Purpose: The reponsibility of courses is ...
  *
@@ -27,5 +29,19 @@ package Student_package.src.student_Package;
  */
 public class courses extends student
 {
+
+	/**
+	 * Purpose: 
+	 * @param ID
+	 * @param name
+	 * @param Lname
+	 * @param courseList
+	 */
+	public courses(int ID, String name, String Lname,
+			HashMap<courses, String> courseList)
+	{
+		super(ID, name, Lname, courseList);
+		// TODO Auto-generated constructor stub
+	}
 
 }

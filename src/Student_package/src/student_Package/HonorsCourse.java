@@ -17,7 +17,9 @@
 *
 * Version: 2025-11-10
 */
-package student_Package;
+package Student_package.src.student_Package;
+
+import java.util.HashMap;
 
 /**
  * Purpose: The reponsibility of HonorsCourse is ...
@@ -27,5 +29,19 @@ package student_Package;
  */
 public class HonorsCourse extends courses
 {
+
+	/**
+	 * Purpose: 
+	 * @param ID
+	 * @param name
+	 * @param Lname
+	 * @param courseList
+	 */
+	public HonorsCourse(int ID, String name, String Lname,
+			HashMap<courses, String> courseList)
+	{
+		super(ID, name, Lname, courseList);
+		// TODO Auto-generated constructor stub
+	}
 
 }
