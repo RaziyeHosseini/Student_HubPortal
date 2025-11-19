@@ -1,0 +1,4 @@
+100, Raz, Hosseyni, Math1:A, Science2*:B, English3*:C
+101, John, Smith, History:B, Biology*:A, Chemistry:C
+102, Jane, Doe, Physics*:A, Calculus:B, Art:A
+103, John, Hardcore, History:B, Biology*:A, Chemistry:C

@@ -5,6 +5,7 @@
  * @author Full name; Student ID
  *         <<Add additional lead authors here>>
  *
+ *         Other Contributors:
  *         Full name; Student ID or contact information if not in class
  *         <<Add additional contributors (mentors, tutors, friends) here, with
  *         contact information>>
@@ -14,31 +15,39 @@
  *         Java, Java, Java: Object-Oriented Problem Solving
  *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
+ *         <<Add more references here>>
  *
- *         Version: 2025-11-10
+ *         Version: 2025-11-03
  */
 package Student_package.src.student_Package;
 
 import java.util.HashMap;
 
 /**
- * Purpose: The reponsibility of HonorsCourse is ...
+ * Purpose: The reponsibility of Courses is ...
  *
- * HonorsCourse is-a ... HonorsCourse is ...
+ * Courses is-a ... Courses is ...
  */
-public class HonorsCourse extends Courses
+public class Courses
 {
 
-	public HonorsCourse(String courseName, int creditHours)
+	String courseName;
+
+	boolean isHonors;
+
+	private int creditHours; // number of credit hours for the course
+
+	public Courses(String courseName, boolean isHonors, int creditHours)
 	{
-		super(courseName, true, creditHours);
+		this.courseName = courseName;
+		this.isHonors = isHonors;
+		this.creditHours = creditHours;
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public double getGradePoints(String grade)
 	{
-		double basepoints = 0;
+		double basepoints = 0.0;
 		switch (grade.toUpperCase())
 		{
 			case "A":
@@ -57,14 +66,35 @@ public class HonorsCourse extends Courses
 				basepoints = 0.0;
 				break;
 			default:
-				basepoints = 0.0; // Invalid grade
-				break;
+				basepoints = 0.0;
+
 		}
-		if (!grade.equalsIgnoreCase("F"))
+
+		if (isHonors && !grade.equalsIgnoreCase("F"))
 		{
-			return basepoints += 1.0; // Honors course bonus
+			return basepoints + 1.0;
 		}
-		return basepoints;
+		else
+		{
+			return basepoints;
+		}
+
 	}
+	
+	public String getCourseName()
+	{
+		return courseName;
+	}
+	
+	public boolean isHonors()
+	{
+		return isHonors;
+	}
+	
+	public int getCreditHours()
+	{
+		return creditHours;
+	}
+	
 
 }

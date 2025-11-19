@@ -1,106 +1,61 @@
 package Student_package.src.student_Package;
 
 import java.util.HashMap;
+
 /**
- * Purpose: The reponsibility of student is ...
+ * Purpose: The reponsibility of Student is ...
  *
- * student is-a ...
- * student is ...
+ * Student is-a ... Student is ...
  */
-public class student
+public class Student
 {
-	private int ID;
-	private String name ;
+	private String ID;
+	private String Firstname;
 	private String Lname;
-	private HashMap<courses, String> courseList = new HashMap<courses, String>();
-	
-	
-	
-	public student(int ID, String name , String Lname, HashMap<courses, String> courseList) {
-		this.setID(ID);
-		this.setName(name) ;
-		this.setLname(Lname) ;
-		this.courseList = courseList;
-		
+	private HashMap<Courses, String> courseGrades; // Map of Courses to grades
+
+	public Student(String ID, String Firstname, String Lname, HashMap<Courses, String> courseGrades)
+	{
+
+		this.ID = ID;
+		this.Firstname = Firstname;
+		this.Lname = Lname;
+		this.courseGrades = courseGrades;
+
 	}
+
+	public void addCourseGrade(Courses course, String grade)
+	{
+		courseGrades.put(course, grade);
+
+	}
+
+	public double calculateGPA()
+	{
+		GPACalculator gpaCalculator = new GPACalculator();
+		return gpaCalculator.calculateGPA(courseGrades);
+	}
+
+	// Getter methods
 	
-	/**
-	 * @return the iD
-	 */
-	public int getID()
+	public String getId()
 	{
 		return ID;
 	}
 
-
-
-	/**
-	 * @param iD the iD to set
-	 */
-	public void setID(int iD)
+	public String getFirstname()
 	{
-		ID = iD;
+		return Firstname;
 	}
 
-
-
-	/**
-	 * @return the name
-	 */
-	public String getName()
-	{
-		return name;
-	}
-
-
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-
-
-
-	/**
-	 * @return the lname
-	 */
 	public String getLname()
 	{
 		return Lname;
 	}
 
-
-
-	/**
-	 * @param lname the lname to set
-	 */
-	public void setLname(String lname)
+	public HashMap<Courses, String> getCourseGrades()
 	{
-		Lname = lname;
+		return courseGrades;
 	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

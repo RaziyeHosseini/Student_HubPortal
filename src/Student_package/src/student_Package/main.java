@@ -1,11 +1,11 @@
 /**
 * Lead Author(s):
-* @author raziyehosseini; student ID
-* @author Full name; student ID
+* @author raziyehosseini; Student ID
+* @author Full name; Student ID
 * <<Add additional lead authors here>>
 *
 * Other Contributors:
-* Full name; student ID or contact information if not in class
+* Full name; Student ID or contact information if not in class
 * <<Add additional contributors (mentors, tutors, friends) here, with contact information>>
 *
 * References:
@@ -22,18 +22,16 @@ package Student_package.src.student_Package;
 /**
  * Purpose: The reponsibility of main is ...
  *
- * main is-a ...
- * main is ...
+ * main is-a ... main is ...
  */
-public class main
-{
+public class main {
 
 	/**
-	 * Purpose: 
+	 * Purpose:
+	 * 
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
