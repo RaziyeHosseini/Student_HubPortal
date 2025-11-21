@@ -133,7 +133,8 @@ public class LoginApp
 							Courses course;
 							if (isHonors)
 							{
-								course = new HonorsCourse(courseName, 3); // 3 credit hours 
+								// Still needs update, not all courses are 3 credit hours
+								course = new HonorsCourse(courseName, 4); // 3 credit hours 
 							}
 							else
 							{
