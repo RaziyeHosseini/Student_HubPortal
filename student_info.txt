@@ -3,3 +3,5 @@
 102, Jane, Doe, Physics*:A, Calculus:B, Art:A
 103, John, Hardcore, History:B, Biology*:A, Chemistry:C
 5550214842, Iker, Nunez, English205*:A, Math151:D, JavaInt:C, Physics101:B, History202:F, Art100:A
+
+Update: We can change specific classes with their credit hours. (Work to be done in the future)

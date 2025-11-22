@@ -9,11 +9,14 @@ import java.util.HashMap;
  */
 public class Student
 {
+	
+	// Fields
 	private String ID;
 	private String Firstname;
 	private String Lname;
 	private HashMap<Courses, String> courseGrades; // Map of Courses to grades
 
+	// Constructor
 	public Student(String ID, String Firstname, String Lname, HashMap<Courses, String> courseGrades)
 	{
 
@@ -24,6 +27,7 @@ public class Student
 
 	}
 
+	// Methods
 	public void addCourseGrade(Courses course, String grade)
 	{
 		courseGrades.put(course, grade);
@@ -36,8 +40,8 @@ public class Student
 		return gpaCalculator.calculateGPA(courseGrades);
 	}
 
-	// Getter methods
-	
+
+	// Getters
 	public String getId()
 	{
 		return ID;

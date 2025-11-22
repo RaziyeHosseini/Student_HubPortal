@@ -32,26 +32,32 @@ import java.util.Map;
 
 public class GPACalculator
 {
-	// New file exists
+	// Fields
 	double totalCredits = 0;
 	double totalPoints = 0;
 	double creditHours = 0;
 
+	// Methods
 	public double calculateGPA(HashMap<Courses, String> courseList)
 	{
-
+		// Reset totals
 		double totalPoints = 0;
 		double totalCredits = 0;
+		
+		// Calculate total points and credits
 		for (Map.Entry<Courses, String> entry : courseList.entrySet())
 		{
+			// Get course and grade
 			Courses course = entry.getKey();
 			String grade = entry.getValue();
 			double gradePoints = course.getGradePoints(grade);
 			int creditHours = course.getCreditHours();
 
+			// Accumulate totals
 			totalPoints += gradePoints * creditHours;
 			totalCredits += creditHours;
 		}
+		// Calculate and return GPA
 		return totalCredits == 0 ? 0 : totalPoints / totalCredits;
 	}
 }
