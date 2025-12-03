@@ -1,5 +1,5 @@
 /**
- * Lead Author(s):
+ * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
  * @author raziyehosseini; Student ID
  * @author Full name; Student ID
@@ -21,7 +21,6 @@
  */
 package Student_package.src.student_Package;
 
-import java.util.HashMap;
 
 /**
  * Purpose: The reponsibility of Courses is ...

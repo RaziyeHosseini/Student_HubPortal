@@ -1,5 +1,5 @@
 /**
- * Lead Author(s):
+ * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
  * @author raziyehosseini; Student ID
  * @author Full name; Student ID

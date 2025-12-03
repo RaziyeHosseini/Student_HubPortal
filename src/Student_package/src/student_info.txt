@@ -1,2 +1,0 @@
-100, Raziyeh Hosseyni, math1  A, englsih2 B,  science3 *,
-101, Iker , math2 B, english3 *, science1 A,

@@ -2,3 +2,4 @@
 101, John, Smith, History:B, Biology*:A, Chemistry:C
 102, Jane, Doe, Physics*:A, Calculus:B, Art:A
 103, John, Hardcore, History:B, Biology*:A, Chemistry:C
+5550214842, Iker, Nunez, Football:A, Math1:B, Science2*:A
