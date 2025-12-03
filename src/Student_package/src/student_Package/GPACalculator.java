@@ -1,32 +1,27 @@
 /**
  * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
- * @author raziyehosseini; Student ID
- * @author Full name; Student ID
- *         <<Add additional lead authors here>>
+ * Other Contributors:
+ * 
  *
- *         Other Contributors:
- *         Full name; Student ID or contact information if not in class
- *         <<Add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
+ * References:
+ * Morelli, R., & Walde, R. (2016).
+ * Java, Java, Java: Object-Oriented Problem Solving
+ * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         References:
- *         Morelli, R., & Walde, R. (2016).
- *         Java, Java, Java: Object-Oriented Problem Solving
- *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         <<Add more references here>>
- *
- *         Version: 2025-11-14
+ * Version: 2024-03-11
  */
 package Student_package.src.student_Package;
 
 /**
- * Purpose: The reponsibility of GPACalculator is ...
+ * Purpose: The responsibility of GPACalculator is to calculate GPA based on
+ * course grades and credit hours.
  *
- * GPACalculator is-a ... GPACalculator is ...
+ * GPACalculator is-a utility class
+ * GPACalculator is responsible for computing the Grade Point Average using
+ * weighted grade points
  */
-
 import java.util.HashMap;
 import java.util.Map;
 

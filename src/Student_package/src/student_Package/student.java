@@ -1,34 +1,28 @@
 /**
  * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
- * @author raziyehosseini; Student ID
- * @author Full name; Student ID
- *         <<Add additional lead authors here>>
+ * Other Contributors:
+ * 
  *
- *         Other Contributors:
- *         Full name; Student ID or contact information if not in class
- *         <<Add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
+ * References:
+ * Morelli, R., & Walde, R. (2016).
+ * Java, Java, Java: Object-Oriented Problem Solving
+ * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         References:
- *         Morelli, R., & Walde, R. (2016).
- *         Java, Java, Java: Object-Oriented Problem Solving
- *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         <<Add more references here>>
- *
- *         Version: 2025-11-04
+ * Version: 2024-03-11
  */
 package Student_package.src.student_Package;
-
-
 
 import java.util.HashMap;
 
 /**
- * Purpose: The reponsibility of Student is ...
+ * Purpose: The responsibility of Student is to store student information and
+ * manage course grades.
  *
- * Student is-a ... Student is ...
+ * Student HAS-a relationship with Courses, GPACalculator, & HonorsCourse
+ * Student is the main entity representing a student with personal information
+ * and academic records
  */
 public class Student
 {
@@ -37,7 +31,8 @@ public class Student
 	private String Lname;
 	private HashMap<Courses, String> courseGrades; // Map of Courses to grades
 
-	public Student(String ID, String Firstname, String Lname, HashMap<Courses, String> courseGrades)
+	public Student(String ID, String Firstname, String Lname,
+			HashMap<Courses, String> courseGrades)
 	{
 
 		this.ID = ID;
@@ -60,7 +55,7 @@ public class Student
 	}
 
 	// Getter methods
-	
+
 	public String getId()
 	{
 		return ID;

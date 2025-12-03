@@ -10,15 +10,17 @@
  * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
  *
- * Version: 2025-12-03
+ * Version: 2024-03-11
  */
 package Student_package.src.student_Package;
 
-
 /**
- * Purpose: The reponsibility of HonorsCourse is ...
+ * Purpose: The responsibility of HonorsCourse is to represent an honors course
+ * with enhanced grade point calculation.
  *
- * HonorsCourse is-a ... HonorsCourse is ...
+ * HonorsCourse is-a relationship with Courses (inherits from Courses)
+ * HonorsCourse is a specialized course type that provides bonus points for
+ * non failing grades
  */
 public class HonorsCourse extends Courses
 {

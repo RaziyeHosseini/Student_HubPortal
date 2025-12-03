@@ -1,51 +1,50 @@
 /**
  * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
- * @author raziyehosseini; Student ID
- * @author Full name; Student ID
- *         <<Add additional lead authors here>>
+ * Other Contributors:
+ * 
  *
- *         Other Contributors:
- *         Full name; Student ID or contact information if not in class
- *         <<Add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
+ * References:
+ * Morelli, R., & Walde, R. (2016).
+ * Java, Java, Java: Object-Oriented Problem Solving
+ * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         References:
- *         Morelli, R., & Walde, R. (2016).
- *         Java, Java, Java: Object-Oriented Problem Solving
- *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         <<Add more references here>>
- *
- *         Version: 2025-11-04
+ * Version: 2024-03-11
  */
 package Student_package.src.student_Package;
 
 /**
- * Purpose: The reponsibility of LoginApp is ...
+ * Purpose: The responsibility of LoginApp is to handle student login and
+ * display the student dashboard.
  *
- * LoginApp is-a ...
- * LoginApp is ...
+ * LoginApp is-a Swing application (GUI)
+ * LoginApp is the main entry point that manages student authentication and
+ * dashboard display
  */
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-public class LoginApp {
+public class LoginApp
+{
 	private HashMap<String, Student> studentsDatabase;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		new LoginApp();
 	}
 
-	public LoginApp() {
+	public LoginApp()
+	{
 		studentsDatabase = loadStudentsFromFile("student_info.txt");
 		createLoginGUI();
 	}
 
 	// Create the login GUI (First Window)
-	private void createLoginGUI() {
+	private void createLoginGUI()
+	{
 		JFrame frame = new JFrame("Student Portal Login");
 		JTextField nameField = new JTextField(15);
 		JTextField idField = new JTextField(15);
@@ -72,41 +71,48 @@ public class LoginApp {
 			String studentId = idField.getText().trim();
 
 			// Authenticate student
-			if (authenticateStudent(firstName, studentId)) {
+			if (authenticateStudent(firstName, studentId))
+			{
 				Student Student = studentsDatabase.get(studentId);
 				showStudentDashboard(Student);
 				frame.dispose();
 			} // Student not found
-			else {
+			else
+			{
 				JOptionPane.showMessageDialog(frame, "Student not found!");
 			}
 		});
 	}
 
 	// Authenticate student based on first name and ID
-	private boolean authenticateStudent(String firstName, String studentId) {
+	private boolean authenticateStudent(String firstName, String studentId)
+	{
 		Student student = studentsDatabase.get(studentId);
-		return student != null && student.getFirstname().equalsIgnoreCase(firstName);
+		return student != null
+				&& student.getFirstname().equalsIgnoreCase(firstName);
 	}
 
 	// Load students from file into HashMap
-	private HashMap<String, Student> loadStudentsFromFile(String filename) {
+	private HashMap<String, Student> loadStudentsFromFile(String filename)
+	{
 		HashMap<String, Student> students = new HashMap<>();
 
 		// Read from file
-		try (Scanner scanner = new Scanner(new File(filename))) {
+		try (Scanner scanner = new Scanner(new File(filename)))
+		{
 			// Skip header line
-			while (scanner.hasNextLine()) {
+			while (scanner.hasNextLine())
+			{
 				String line = scanner.nextLine().trim();
 				// Skip empty lines and header
-				if (line.isEmpty() || line.startsWith("ID"))
-					continue;
+				if (line.isEmpty() || line.startsWith("ID")) continue;
 
 				// Parse: "100, Raz, Hosseyni, Math1:A, Science2*:B,
 				// English3*:C"
 				String[] parts = line.split(",");
 				// Basic info
-				if (parts.length >= 3) {
+				if (parts.length >= 3)
+				{
 					String studentId = parts[0].trim();
 					String firstName = parts[1].trim();
 					String lastName = parts[2].trim();
@@ -114,67 +120,85 @@ public class LoginApp {
 					HashMap<Courses, String> courseGrades = new HashMap<>();
 
 					// Add courses and grades
-					for (int i = 3; i < parts.length; i++) {
+					for (int i = 3; i < parts.length; i++)
+					{
 						String courseGrade = parts[i].trim();
 						String[] courseParts = courseGrade.split(":");
-						if (courseParts.length == 2) {
+						if (courseParts.length == 2)
+						{
 							String courseName = courseParts[0].trim();
 							String grade = courseParts[1].trim();
 
 							// Check for honors marker
 							boolean isHonors = courseName.contains("*");
-							courseName = courseName.replace("*", ""); // Remove honor marker
+							courseName = courseName.replace("*", ""); // Remove
+																		// honor
+																		// marker
 
-							// Still needs update, not all courses are 3 credit hours
+							// Still needs update, not all courses are 3 credit
+							// hours
 							Courses course;
-							if (isHonors) {
+							if (isHonors)
+							{
 
-								course = new HonorsCourse(courseName, 4); // 3 credit hours
-							} else {
+								course = new HonorsCourse(courseName, 3); // 3
+																			// credit
+																			// hours
+							}
+							else
+							{
 								course = new Courses(courseName, isHonors, 3);
 							}
 							courseGrades.put(course, grade);
 						}
 					}
-
-					Student student = new Student(studentId, firstName, lastName, courseGrades);
+					// Create Student object
+					Student student = new Student(studentId, firstName,
+							lastName, courseGrades);
 					students.put(studentId, student);
 				}
 			}
 		}
 		// Handle file not found
-		catch (FileNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Error loading Student data: " + e.getMessage());
+		catch (FileNotFoundException e)
+		{
+			JOptionPane.showMessageDialog(null,
+					"Error loading Student data: " + e.getMessage());
 		}
 
 		return students;
 	}
 
 	// Display Student Dashboard
-	private void showStudentDashboard(Student student) {
+	private void showStudentDashboard(Student student)
+	{
 		// Create the second window with Student information
-		JFrame dashboard = new JFrame("Student Dashboard - " + student.getFirstname());
+		JFrame dashboard = new JFrame(
+				"Student Dashboard - " + student.getFirstname());
 		JTextArea infoArea = new JTextArea(20, 30);
 		infoArea.setEditable(false);
 
 		// Build display text
 		StringBuilder sb = new StringBuilder();
 		sb.append("Student ID: ").append(student.getId()).append("\n");
-		sb.append("Name: ").append(student.getFirstname()).append(" ").append(student.getLname()).append("\n\n");
+		sb.append("Name: ").append(student.getFirstname()).append(" ")
+				.append(student.getLname()).append("\n\n");
 		sb.append("Courses and Grades:\n");
 
 		// List courses and grades
-		for (Map.Entry<Courses, String> entry : student.getCourseGrades().entrySet()) {
+		for (Map.Entry<Courses, String> entry : student.getCourseGrades()
+				.entrySet())
+		{
 			Courses course = entry.getKey();
 			String grade = entry.getValue();
 			sb.append("- ").append(course.getCourseName());
-			if (course.isHonors())
-				sb.append(" (Honors)");
+			if (course.isHonors()) sb.append(" (Honors)");
 			sb.append(": ").append(grade).append("\n");
 		}
 
 		// Calculate and display GPA
-		sb.append("\nOverall GPA: ").append(String.format("%.2f", student.calculateGPA()));
+		sb.append("\nOverall GPA: ")
+				.append(String.format("%.2f", student.calculateGPA()));
 		infoArea.setText(sb.toString());
 
 		// Add text area to dashboard
