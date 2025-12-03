@@ -9,19 +9,17 @@
  * Java, Java, Java: Object-Oriented Problem Solving
  * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *
- * Version: 2024-03-11
- */
-package Student_package.src.student_Package;
-
-/**
  * Purpose: The responsibility of GPACalculator is to calculate GPA based on
  * course grades and credit hours.
  *
  * GPACalculator is-a utility class
  * GPACalculator is responsible for computing the Grade Point Average using
  * weighted grade points
+ *
+ * Version: 2024-03-11
  */
+package Student_package.src.student_Package;
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -3,30 +3,30 @@
  * 
  * Other Contributors:
  * https://chat.deepseek.com/share/z0pmyett4yclj8i6wl (Used to make my Javadoc)
- * CoPilot Made changes as well, refer to CONTRIBUTORS.md for details & README.md
+ * CoPilot Made changes as well, refer to CONTRIBUTORS.md for details &
+ * README.md
  * References:
  * Morelli, R., & Walde, R. (2016).
  * Java, Java, Java: Object-Oriented Problem Solving
  * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *
- * Version: 2024-03-11
- */
-package Student_package.src.student_Package;
-
-/**
  * Purpose: The responsibility of LoginApp is to handle student login and
  * display the student dashboard.
  *
  * LoginApp is-a Swing application (GUI)
  * LoginApp is the main entry point that manages student authentication and
  * dashboard display
+ *
+ * Version: 2024-03-11
  */
+package Student_package.src.student_Package;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
 
+// Change comments inside the Methods to be better.
 public class LoginApp
 {
 	private HashMap<String, Student> studentsDatabase;
@@ -130,7 +130,8 @@ public class LoginApp
 							String grade = courseParts[1].trim();
 
 							// Support optional credit hours encoded inside the
-							// course name using +n+ (for example: "Calculus+4+:A").
+							// course name using +n+ (for example:
+							// "Calculus+4+:A").
 							// Default to 3 credit hours when not provided.
 							int creditHours = 3; // default
 							java.util.regex.Matcher m = java.util.regex.Pattern
@@ -147,7 +148,8 @@ public class LoginApp
 									// keep default if parsing fails
 								}
 								// remove the +n+ marker from the course name
-								courseName = courseName.replaceFirst("\\+" + m.group(1) + "\\+", "");
+								courseName = courseName.replaceFirst(
+										"\\+" + m.group(1) + "\\+", "");
 							}
 
 							// Check for honors marker (*) and remove it
@@ -158,11 +160,13 @@ public class LoginApp
 							Courses course;
 							if (isHonors)
 							{
-								course = new HonorsCourse(courseName, creditHours);
+								course = new HonorsCourse(courseName,
+										creditHours);
 							}
 							else
 							{
-								course = new Courses(courseName, isHonors, creditHours);
+								course = new Courses(courseName, isHonors,
+										creditHours);
 							}
 							courseGrades.put(course, grade);
 						}

@@ -9,6 +9,12 @@
  * Java, Java, Java: Object-Oriented Problem Solving
  * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
+ * Purpose: The responsibility of Student is to store student information and
+ * manage course grades.
+ *
+ * Student HAS-a relationship with Courses, GPACalculator, & HonorsCourse
+ * Student is the main entity representing a student with personal information
+ * and academic records
  *
  * Version: 2024-03-11
  */
@@ -16,14 +22,6 @@ package Student_package.src.student_Package;
 
 import java.util.HashMap;
 
-/**
- * Purpose: The responsibility of Student is to store student information and
- * manage course grades.
- *
- * Student HAS-a relationship with Courses, GPACalculator, & HonorsCourse
- * Student is the main entity representing a student with personal information
- * and academic records
- */
 public class Student
 {
 	private String ID;
