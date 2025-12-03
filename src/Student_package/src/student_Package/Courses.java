@@ -92,6 +92,7 @@ public class Courses
 		return creditHours;
 	}
 
+	// Override equals and hashCode for proper comparison in HashMap
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -103,6 +104,7 @@ public class Courses
 				&& (this.courseName == null ? other.courseName == null : this.courseName.equalsIgnoreCase(other.courseName));
 	}
 
+	// Override hashCode for proper hashing in HashMap
 	@Override
 	public int hashCode()
 	{
@@ -113,6 +115,7 @@ public class Courses
 		return result;
 	}
 
+	// Override toString for better representation
 	@Override
 	public String toString()
 	{
