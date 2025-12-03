@@ -2,7 +2,7 @@
  * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
  * Other Contributors:
- * 
+ * https://chat.deepseek.com/share/z0pmyett4yclj8i6wl (Used to make my Javadoc)
  *
  * References:
  * Morelli, R., & Walde, R. (2016).

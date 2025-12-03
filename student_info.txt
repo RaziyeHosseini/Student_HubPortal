@@ -1,5 +1,5 @@
-100, Raz, Hosseyni, Math1:A, Science2*:B, English3*:C
-101, John, Smith, History:B, Biology*:A, Chemistry:C
-102, Jane, Doe, Physics*:A, Calculus:B, Art:A
-103, John, Hardcore, History:B, Biology*:A, Chemistry:C
-5550214842, Iker, Nunez, Football:A, Math1:B, Science2*:A
+100, Raz, Hosseyni, Math1+2+:A, Science2*+1+:B, English3*:C
+101, John, Smith, History:B, Biology*+4+:A, Chemistry+2+:C
+102, Jane, Doe, Physics*+5+:A, Calculus+4+:B, Art+1+:A
+103, John, Hardcore, History:B, Biology*+4+:A, Chemistry+3+:C
+5550214842, Iker, Nunez, Football+2+:A, Math1+3+:B, Science2*+4+:A

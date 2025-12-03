@@ -2,8 +2,8 @@
  * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
  * Other Contributors:
- * 
- *
+ * https://chat.deepseek.com/share/z0pmyett4yclj8i6wl (Used to make my Javadoc)
+ * CoPilot Made changes as well, refer to CONTRIBUTORS.md for details & README.md
  * References:
  * Morelli, R., & Walde, R. (2016).
  * Java, Java, Java: Object-Oriented Problem Solving
@@ -129,25 +129,40 @@ public class LoginApp
 							String courseName = courseParts[0].trim();
 							String grade = courseParts[1].trim();
 
-							// Check for honors marker
-							boolean isHonors = courseName.contains("*");
-							courseName = courseName.replace("*", ""); // Remove
-																		// honor
-																		// marker
+							// Support optional credit hours encoded inside the
+							// course name using +n+ (for example: "Calculus+4+:A").
+							// Default to 3 credit hours when not provided.
+							int creditHours = 3; // default
+							java.util.regex.Matcher m = java.util.regex.Pattern
+									.compile("\\+(\\d+)\\+")
+									.matcher(courseName);
+							if (m.find())
+							{
+								try
+								{
+									creditHours = Integer.parseInt(m.group(1));
+								}
+								catch (NumberFormatException ex)
+								{
+									// keep default if parsing fails
+								}
+								// remove the +n+ marker from the course name
+								courseName = courseName.replaceFirst("\\+" + m.group(1) + "\\+", "");
+							}
 
-							// Still needs update, not all courses are 3 credit
-							// hours
+							// Check for honors marker (*) and remove it
+							boolean isHonors = courseName.contains("*");
+							courseName = courseName.replace("*", "").trim();
+
+							// Create course with parsed credit hours
 							Courses course;
 							if (isHonors)
 							{
-
-								course = new HonorsCourse(courseName, 3); // 3
-																			// credit
-																			// hours
+								course = new HonorsCourse(courseName, creditHours);
 							}
 							else
 							{
-								course = new Courses(courseName, isHonors, 3);
+								course = new Courses(courseName, isHonors, creditHours);
 							}
 							courseGrades.put(course, grade);
 						}
