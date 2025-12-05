@@ -1,31 +1,24 @@
 /**
- * Lead Author(s):
+ * Lead Author(s): Iker Nunez & Raziye Hosseini
  * 
- * @author raziyehosseini; Student ID
- * @author Full name; Student ID
- *         <<Add additional lead authors here>>
+ * Other Contributors:
+ * https://chat.deepseek.com/share/z0pmyett4yclj8i6wl (Used to make my Javadoc)
  *
- *         Other Contributors:
- *         Full name; Student ID or contact information if not in class
- *         <<Add additional contributors (mentors, tutors, friends) here, with
- *         contact information>>
+ * References:
+ * Morelli, R., & Walde, R. (2016).
+ * Java, Java, Java: Object-Oriented Problem Solving
+ * https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
  *
- *         References:
- *         Morelli, R., & Walde, R. (2016).
- *         Java, Java, Java: Object-Oriented Problem Solving
- *         https://open.umn.edu/opentextbooks/textbooks/java-java-java-object-oriented-problem-solving
+ * Purpose: The responsibility of GPACalculator is to calculate GPA based on
+ * course grades and credit hours.
  *
- *         <<Add more references here>>
+ * GPACalculator is-a utility class
+ * GPACalculator is responsible for computing the Grade Point Average using
+ * weighted grade points
  *
- *         Version: 2025-11-14
+ * Version: 2024-03-11
  */
 package Student_package.src.student_Package;
-
-/**
- * Purpose: The reponsibility of GPACalculator is ...
- *
- * GPACalculator is-a ... GPACalculator is ...
- */
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +30,24 @@ public class GPACalculator
 	double totalPoints = 0;
 	double creditHours = 0;
 
+<<<<<<< HEAD
 	// Methods
+=======
+	/**
+	 * Calculate the weighted GPA for a collection of courses and their
+	 * respective letter grades.
+	 * <p>
+	 * This method iterates over the provided map of {@link Courses} to
+	 * letter grade strings, asks each course for its grade points via
+	 * {@link Courses#getGradePoints(String)}, multiplies by the course's
+	 * credit hours (via {@link Courses#getCreditHours()}), sums the total
+	 * points and credits, and returns the weighted GPA.
+	 *
+	 * @param courseList map where the key is a {@link Courses} instance and
+	 *                   the value is the letter grade (e.g., "A", "B")
+	 * @return the weighted GPA (0.0 if the total credits are zero)
+	 */
+>>>>>>> 0bfc390f81bbf85a13b9fa7ca7af237c8e6e4bfa
 	public double calculateGPA(HashMap<Courses, String> courseList)
 	{
 		// Reset totals
