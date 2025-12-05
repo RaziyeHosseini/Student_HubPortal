@@ -31,11 +31,28 @@ public class LoginApp
 {
 	private HashMap<String, Student> studentsDatabase;
 
+	/**
+	 * Application entry point.
+	 * <p>
+	 * This static main method starts the Swing application by constructing
+	 * a new {@link LoginApp} instance which loads student data and opens
+	 * the login GUI.
+	 *
+	 * @param args command-line arguments (unused)
+	 */
 	public static void main(String[] args)
 	{
 		new LoginApp();
 	}
 
+	/**
+	 * Initialize the application: load students from the provided data
+	 * file and create the login GUI.
+	 * <p>
+	 * This constructor calls {@link #loadStudentsFromFile(String)} to
+	 * populate the internal students database and then builds the login
+	 * interface via {@link #createLoginGUI()}.
+	 */
 	public LoginApp()
 	{
 		studentsDatabase = loadStudentsFromFile("student_info.txt");
@@ -43,6 +60,14 @@ public class LoginApp
 	}
 
 	// Create the login GUI (First Window)
+	/**
+	 * Build and display the login window.
+	 * <p>
+	 * The GUI collects the student's first name and ID. When the user
+	 * clicks "Enter" the supplied credentials are validated by
+	 * {@link #authenticateStudent(String, String)}; if valid, the
+	 * dashboard is shown via {@link #showStudentDashboard(Student)}.
+	 */
 	private void createLoginGUI()
 	{
 		JFrame frame = new JFrame("Student Portal Login");
@@ -84,7 +109,18 @@ public class LoginApp
 		});
 	}
 
-	// Authenticate student based on first name and ID
+	/**
+	 * Validate a student's first name and ID against the loaded database.
+	 *
+	 * This method performs a case-insensitive comparison of the provided
+	 * first name with the stored student record. It is used by the login
+	 * GUI to authenticate users before showing their dashboard.
+	 *
+	 * @param firstName the first name entered in the login form
+	 * @param studentId the student ID entered in the login form
+	 * @return true if a matching student is found and the name matches;
+	 *         false otherwise
+	 */
 	private boolean authenticateStudent(String firstName, String studentId)
 	{
 		Student student = studentsDatabase.get(studentId);
@@ -92,7 +128,21 @@ public class LoginApp
 				&& student.getFirstname().equalsIgnoreCase(firstName);
 	}
 
-	// Load students from file into HashMap
+	/**
+	 * Load students from the given filename into a map keyed by student ID.
+	 * <p>
+	 * The file is expected to contain one student per line with the format:
+	 * ID, FirstName, LastName, courseToken1, courseToken2, ...
+	 * where each courseToken is of the form: <CourseName>[*][+n+]:<Grade>
+	 * The +n+ marker (e.g., +4+) indicates credit hours; '*' indicates
+	 * honors. This method constructs {@link Courses} or
+	 * {@link HonorsCourse} instances (with parsed credit hours) and
+	 * populates each student's course->grade map.
+	 *
+	 * @param filename path to the student data file (relative to
+	 *                 application working directory)
+	 * @return map of student ID to {@link Student} instances
+	 */
 	private HashMap<String, Student> loadStudentsFromFile(String filename)
 	{
 		HashMap<String, Student> students = new HashMap<>();
@@ -135,8 +185,8 @@ public class LoginApp
 							// Default to 3 credit hours when not provided.
 							int creditHours = 3; // default
 							java.util.regex.Matcher m = java.util.regex.Pattern
-									.compile("\\+(\\d+)\\+")
-									.matcher(courseName);
+								.compile("\\+(\\d+)\\+")
+								.matcher(courseName);
 							if (m.find())
 							{
 								try
@@ -148,8 +198,7 @@ public class LoginApp
 									// keep default if parsing fails
 								}
 								// remove the +n+ marker from the course name
-								courseName = courseName.replaceFirst(
-										"\\+" + m.group(1) + "\\+", "");
+								courseName = courseName.replaceFirst("\\+" + m.group(1) + "\\+", "");
 							}
 
 							// Check for honors marker (*) and remove it
@@ -160,13 +209,11 @@ public class LoginApp
 							Courses course;
 							if (isHonors)
 							{
-								course = new HonorsCourse(courseName,
-										creditHours);
+								course = new HonorsCourse(courseName, creditHours);
 							}
 							else
 							{
-								course = new Courses(courseName, isHonors,
-										creditHours);
+								course = new Courses(courseName, isHonors, creditHours);
 							}
 							courseGrades.put(course, grade);
 						}
@@ -183,12 +230,20 @@ public class LoginApp
 		{
 			JOptionPane.showMessageDialog(null,
 					"Error loading Student data: " + e.getMessage());
-		}
+			}
 
 		return students;
 	}
 
-	// Display Student Dashboard
+	/**
+	 * Show the student dashboard window with the student's courses and GPA.
+	 * <p>
+	 * This method builds a textual summary of the student's ID, name,
+	 * courses and grades, and computes the overall GPA via
+	 * {@link Student#calculateGPA()} to display in the UI.
+	 *
+	 * @param student the {@link Student} whose dashboard to display
+	 */
 	private void showStudentDashboard(Student student)
 	{
 		// Create the second window with Student information
@@ -201,7 +256,7 @@ public class LoginApp
 		StringBuilder sb = new StringBuilder();
 		sb.append("Student ID: ").append(student.getId()).append("\n");
 		sb.append("Name: ").append(student.getFirstname()).append(" ")
-				.append(student.getLname()).append("\n\n");
+			.append(student.getLname()).append("\n\n");
 		sb.append("Courses and Grades:\n");
 
 		// List courses and grades
@@ -217,7 +272,7 @@ public class LoginApp
 
 		// Calculate and display GPA
 		sb.append("\nOverall GPA: ")
-				.append(String.format("%.2f", student.calculateGPA()));
+			.append(String.format("%.2f", student.calculateGPA()));
 		infoArea.setText(sb.toString());
 
 		// Add text area to dashboard
@@ -227,38 +282,5 @@ public class LoginApp
 		dashboard.setLocationRelativeTo(null);
 		dashboard.setVisible(true);
 	}
-}
 
-//
-// JFrame frame = new JFrame("Login");
-// JTextField nameField = new JTextField(15);
-// JTextField idField = new JTextField(15);
-// JButton enter = new JButton("Enter");
-//
-// JPanel panel = new JPanel(new GridLayout(3, 2, 10, 10));
-// panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-//
-// panel.add(new JLabel("Name:"));
-// panel.add(nameField);
-// panel.add(new JLabel("ID:"));
-// panel.add(idField);
-// panel.add(new JLabel("")); // empty cell
-// panel.add(enter);
-//
-// frame.add(panel);
-// frame.pack();
-// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-// frame.setLocationRelativeTo(null); // center the frame
-// frame.setVisible(true);
-//
-//// Action listener for the enter button, UPDATE CODE BELOW for when we need to
-//// add the 2nd window for the Student details
-// enter.addActionListener(e -> {
-// String name = nameField.getText();
-// String id = idField.getText();
-// if (checkUser(name, id)) {
-// JOptionPane.showMessageDialog(frame, "Found!");
-// } else {
-// JOptionPane.showMessageDialog(frame, "Not Found!");
-// }
-// });
+}

@@ -30,6 +30,20 @@ public class GPACalculator
 	double totalPoints = 0;
 	double creditHours = 0;
 
+	/**
+	 * Calculate the weighted GPA for a collection of courses and their
+	 * respective letter grades.
+	 * <p>
+	 * This method iterates over the provided map of {@link Courses} to
+	 * letter grade strings, asks each course for its grade points via
+	 * {@link Courses#getGradePoints(String)}, multiplies by the course's
+	 * credit hours (via {@link Courses#getCreditHours()}), sums the total
+	 * points and credits, and returns the weighted GPA.
+	 *
+	 * @param courseList map where the key is a {@link Courses} instance and
+	 *                   the value is the letter grade (e.g., "A", "B")
+	 * @return the weighted GPA (0.0 if the total credits are zero)
+	 */
 	public double calculateGPA(HashMap<Courses, String> courseList)
 	{
 

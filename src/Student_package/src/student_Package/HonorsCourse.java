@@ -23,12 +23,34 @@ package Student_package.src.student_Package;
 public class HonorsCourse extends Courses
 {
 
+	/**
+	 * Construct a new HonorsCourse.
+	 * <p>
+	 * HonorsCourse is a specialized {@link Courses} instance where the
+	 * honors flag is always true. Credit hours are provided at
+	 * construction time and used later by {@link GPACalculator} when
+	 * computing weighted GPA.
+	 *
+	 * @param courseName the display name of the course (without honors or
+	 *                   credit markers)
+	 * @param creditHours number of credit hours for this course (positive)
+	 */
 	public HonorsCourse(String courseName, int creditHours)
 	{
 		super(courseName, true, creditHours);
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Calculate grade points for the given letter grade in this honors
+	 * course. Honors courses add one bonus point to non-failing grades.
+	 *
+	 * This method is called by {@link GPACalculator#calculateGPA} for each
+	 * course when computing the weighted GPA.
+	 *
+	 * @param grade the letter grade (A, B, C, D, F)
+	 * @return grade points including the honors bonus for non-F grades
+	 */
 	@Override
 	public double getGradePoints(String grade)
 	{
