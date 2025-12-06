@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-100, Raz, Hosseyni, Math1:A, Science2*:B, English3*:C
-101, John, Smith, History:B, Biology*:A, Chemistry:C
-102, Jane, Doe, Physics*:A, Calculus:B, Art:A
-103, John, Hardcore, History:B, Biology*:A, Chemistry:C
-5550214842, Iker, Nunez, English205*:A, Math151:D, JavaInt:C, Physics101:B, History202:F, Art100:A
-
-Update: We can change specific classes with their credit hours. (Work to be done in the future)
-=======
 100, Raz, Hosseyni, Math1+4+:A, Science2*+5+:B, English3*:C
 101, John, Smith, History:B, Biology*+4+:A, Chemistry+2+:C
 102, Jane, Doe, Physics*+5+:A, Calculus+4+:B, Art+1+:A
 103, John, Hardcore, History:B, Biology*+4+:A, Chemistry+3+:C
 5550214842, Iker, Nunez, Football+2+:A, Math1+3+:B, Science2*+4+:A
->>>>>>> 0bfc390f81bbf85a13b9fa7ca7af237c8e6e4bfa
+
+# Update: credit hours can be specified using +n+ inside the course token (e.g. Math1+4+:A).

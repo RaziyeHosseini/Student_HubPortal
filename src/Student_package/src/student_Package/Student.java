@@ -22,30 +22,24 @@ package Student_package.src.student_Package;
 
 import java.util.HashMap;
 
-public class Student
-{
-	
+public class Student {
+
 	// Fields
 	private String ID;
 	private String Firstname;
 	private String Lname;
 	private HashMap<Courses, String> courseGrades; // Map of Courses to grades
 
-<<<<<<< HEAD:src/Student_package/src/student_Package/Student.java
-	// Constructor
-	public Student(String ID, String Firstname, String Lname, HashMap<Courses, String> courseGrades)
-=======
 	/**
 	 * Construct a new Student object.
 	 *
-	 * @param ID unique student identifier (string)
-	 * @param Firstname student's first name
-	 * @param Lname student's last name
+	 * @param ID           unique student identifier (string)
+	 * @param Firstname    student's first name
+	 * @param Lname        student's last name
 	 * @param courseGrades initial map of {@link Courses} to letter grade
 	 */
-	public Student(String ID, String Firstname, String Lname,
-			HashMap<Courses, String> courseGrades)
->>>>>>> 0bfc390f81bbf85a13b9fa7ca7af237c8e6e4bfa:src/Student_package/src/student_Package/student.java
+	public Student(String ID, String Firstname, String Lname, HashMap<Courses, String> courseGrades)
+
 	{
 
 		this.ID = ID;
@@ -55,9 +49,8 @@ public class Student
 
 	}
 
-<<<<<<< HEAD:src/Student_package/src/student_Package/Student.java
 	// Methods
-=======
+
 	/**
 	 * Add or update a course grade for this student.
 	 *
@@ -65,11 +58,10 @@ public class Student
 	 * corresponding letter grade into the student's internal course map.
 	 *
 	 * @param course the course to add or update
-	 * @param grade the letter grade (e.g., "A", "B")
+	 * @param grade  the letter grade (e.g., "A", "B")
 	 */
->>>>>>> 0bfc390f81bbf85a13b9fa7ca7af237c8e6e4bfa:src/Student_package/src/student_Package/student.java
-	public void addCourseGrade(Courses course, String grade)
-	{
+
+	public void addCourseGrade(Courses course, String grade) {
 		courseGrades.put(course, grade);
 
 	}
@@ -77,22 +69,19 @@ public class Student
 	/**
 	 * Calculate the student's overall GPA.
 	 *
-	 * This delegates to {@link GPACalculator#calculateGPA(HashMap)} using
-	 * the student's internal course->grade map. The returned value is the
-	 * weighted GPA based on each course's credit hours.
+	 * This delegates to {@link GPACalculator#calculateGPA(HashMap)} using the
+	 * student's internal course->grade map. The returned value is the weighted GPA
+	 * based on each course's credit hours.
 	 *
 	 * @return weighted GPA (0.0 if the student has no credited courses)
 	 */
-	public double calculateGPA()
-	{
+	public double calculateGPA() {
 		GPACalculator gpaCalculator = new GPACalculator();
 		return gpaCalculator.calculateGPA(courseGrades);
 	}
 
-<<<<<<< HEAD:src/Student_package/src/student_Package/Student.java
-
 	// Getters
-=======
+
 	// Getter methods
 
 	/**
@@ -100,9 +89,8 @@ public class Student
 	 *
 	 * @return student ID string
 	 */
->>>>>>> 0bfc390f81bbf85a13b9fa7ca7af237c8e6e4bfa:src/Student_package/src/student_Package/student.java
-	public String getId()
-	{
+
+	public String getId() {
 		return ID;
 	}
 
@@ -111,8 +99,7 @@ public class Student
 	 *
 	 * @return first name
 	 */
-	public String getFirstname()
-	{
+	public String getFirstname() {
 		return Firstname;
 	}
 
@@ -121,22 +108,19 @@ public class Student
 	 *
 	 * @return last name
 	 */
-	public String getLname()
-	{
+	public String getLname() {
 		return Lname;
 	}
 
 	/**
 	 * Get the student's course->grade map.
 	 *
-	 * This returns the internal map used by the GPA calculation and UI
-	 * display. Modifying the returned map will affect the student's
-	 * recorded courses.
+	 * This returns the internal map used by the GPA calculation and UI display.
+	 * Modifying the returned map will affect the student's recorded courses.
 	 *
 	 * @return map of {@link Courses} to letter grade strings
 	 */
-	public HashMap<Courses, String> getCourseGrades()
-	{
+	public HashMap<Courses, String> getCourseGrades() {
 		return courseGrades;
 	}
 
